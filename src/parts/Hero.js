@@ -9,9 +9,9 @@ export default function Hero() {
           You've Dreaming
         </h1>
         <h2 className="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
-          Kami menyediakan furniture berkelas yang
+        We provide classy furniture
           <br className="hidden lg:block" />
-          membuat ruangan terasa homey
+          namely make the room feel homey
         </h2>
         <div>
           <a
