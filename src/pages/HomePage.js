@@ -1,5 +1,9 @@
 import React from 'react';
 
+import useScrollAnchor from '../helpers/hooks/useScrollAnchor';
+import useModalDOM from '../helpers/hooks/useModalDOM';
+
+
 import Header from '../parts/Header';
 import Hero from '../parts/Hero';
 import BrowseRoom from '../parts/HomePage/BrowseRoom';
@@ -9,6 +13,8 @@ import Sitemap from '../parts/Sitemap';
 import Footer from '../parts/Footer';
 
 export default function HomePage() {
+  useScrollAnchor();
+  useModalDOM();
   return (
     <>
         <Header theme="white" position="absolute"/>
