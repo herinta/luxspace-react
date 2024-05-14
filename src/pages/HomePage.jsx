@@ -9,13 +9,13 @@ import Sitemap from "../parts/HomePage/Sitemap";
 export default function HomePage() {
   return (
     <>
-        <Header/>
-        <Hero/>
-        <BrowseRoom/>
-        <JustArrived/>
-        <Clients/>
-        <Sitemap/>
-        <Footer/>
+      <Header theme="white" position="absolute"/>
+      <Hero />
+      <BrowseRoom />
+      <JustArrived />
+      <Clients />
+      <Sitemap />
+      <Footer />
     </>
-  )
+  );
 }
