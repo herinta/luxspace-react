@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-
+import logo from "../assets/images/content/logo.png"
 export default function Sitemap() {
   return (
-    <section className="">
-      <div className="border-t border-b border-gray-200 py-12 mt-16 px-4">
+    <section className="sitemap">
+      <div className=" border-b border-gray-200 py-12 mt-16 px-4">
         <div className="flex justify-center mb-8">
           <img
-            src="images/content/logo.png"
+            src={logo}
             alt="Luxspace | Fulfill your house with beautiful furniture"
           />
         </div>

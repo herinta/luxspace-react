@@ -1,7 +1,9 @@
 import Breadcrumb from "../components/Breadcrumb/Index";
+import ProductDetails from "../parts/Details/ProductDetails";
+import Suggestion from "../parts/Details/Suggestion";
+import Footer from "../parts/Footer";
 import Header from "../parts/Header";
-import Footer from "../parts/HomePage/Footer";
-import Sitemap from "../parts/HomePage/Sitemap";
+import Sitemap from "../parts/Sitemap";
 
 export default function Details() {
   return (
@@ -12,8 +14,10 @@ export default function Details() {
         {url : "/categories/91231", name: "Office Room"},
         {url : "/categories/91231/products/7888", name: "Details"}
       ]} />
+      <ProductDetails/>
+      <Suggestion/>
       <Sitemap />
-      <Footer />
+      <Footer/>
     </>
   );
 }
