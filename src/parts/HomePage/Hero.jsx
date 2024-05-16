@@ -1,7 +1,5 @@
 
-import { Link } from 'react-router-dom'
-
-import hero from "../assets/images/content/image-section-1.png"
+import hero from "../../assets/images/content/image-section-1.png"
 
 export default function Hero() {
     return (
@@ -17,11 +15,11 @@ export default function Hero() {
             <br className="hidden lg:block" />membuat ruangan terasa homey
         </h2>
         <div>
-            <Link
+            <a
                 href="#browse-the-room"
                 className="bg-pink-400 text-black hover:bg-black hover:text-pink-400 rounded-full px-8 py-3 mt-4 inline-block flex-none transition duration-200"
                 >Explore Now
-            </Link>
+            </a>
         </div>
         </div>
         <div className="w-full inset-0 md:relative md:w-1/2">
