@@ -1,15 +1,13 @@
-import imgArrived1 from "../../assets/images/content/image-arrived-1.png";
-import imgArrived2 from "../../assets/images/content/image-arrived-2.png";
-import imgArrived3 from "../../assets/images/content/image-arrived-3.png";
-import imgArrived4 from "../../assets/images/content/image-arrived-4.png";
-import imgArrived5 from "../../assets/images/content/image-arrived-5.png";
-
 import useAsync from "../../helpers/hooks/useAsync";
 import fetch from "../../helpers/fetch";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import Carousel from "../../components/Carousel";
+import { Link } from "react-router-dom";
 
 export default function JustArrived() {
   const { data, error, run, isLoading } = useAsync();
+
+  const refContainer = useRef(null);
 
   useEffect(() => {
     run(fetch({ url: "/api/products/?page=1&limit=10" }));
@@ -25,16 +23,25 @@ export default function JustArrived() {
         </div>
       </div>
       <div className="overflow-x-hidden px-4" id="carousel">
-        <div className="container mx-auto"></div>
+        <div className="container mx-auto" ref={refContainer}></div>
         {/* <!-- <div className="overflow-hidden z-10"> --> */}
-        <div className="flex -mx-4 flex-row relative">
-          {isLoading
-            ? "Loading"
-            : error
-            ? JSON.stringify(error)
-            : data.data.lenght === 0
-            ? "No Product Found"
-            : data.data.map((item) => {
+        {isLoading ? (
+          <div
+            className="flex -mx-4 flex-row relative"
+            style={{
+              paddingLeft:
+                refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
+            }}
+          >
+            "Loading"
+          </div>
+          ) : error ? (
+            JSON.stringify(error)
+          ) : data.data.lenght === 0 ? (
+            "No Product Found"
+          ) : (
+            <Carousel refContainer={refContainer}>
+              {data.data.map((item) => {
                 return (
                   <div key={item.id} className="px-4 relative card group">
                     <div
@@ -62,17 +69,19 @@ export default function JustArrived() {
                         className="w-full h-full object-cover object-center"
                       />
                     </div>
-                    <h5 className="text-lg font-semibold mt-4">
-                      {item.title}
-                    </h5>
+                    <h5 className="text-lg font-semibold mt-4">{item.title}</h5>
                     <span className="">IDR 89.300</span>
-                    <a href="details.html" className="stretched-link">
-                      {/* <!-- fake children --> */}
-                    </a>
+                    <Link
+                    to={`/categories/:idc`}
+                    className="stretched-link"
+                  >
+                    {/* <!-- fake children --> */}
+                  </Link>
                   </div>
                 );
               })}
-        </div>
+            </Carousel>
+          )}
         {/* <!-- </div> --> */}
       </div>
     </section>
