@@ -4,6 +4,24 @@ import { useEffect, useRef } from "react";
 import Carousel from "../../components/Carousel";
 import { Link } from "react-router-dom";
 
+function Loading() {
+  return Array(6)
+    .fill()
+    .map((_, index) => {
+      return (
+        <div className="px-4 relative card group" key={index}>
+          <div
+            className="rounded-xl bg-gray-300 overflow-hidden card-shadow relative"
+            style={{ width: 287, height: 386 }}
+          ></div>
+          <div className="w-24 h-3 bg-gray-300 mt-3 rounded-full"></div>
+          <div className="w-36 h-3 bg-gray-300 mt-2 rounded-full"></div>
+        </div>
+      );
+    });
+}
+
+
 export default function JustArrived() {
   const { data, error, run, isLoading } = useAsync();
 
@@ -33,7 +51,7 @@ export default function JustArrived() {
                 refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
             }}
           >
-            "Loading"
+            <Loading/>
           </div>
           ) : error ? (
             JSON.stringify(error)
